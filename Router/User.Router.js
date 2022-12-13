@@ -21,23 +21,23 @@ app.get("/", async (req, res) => {
 
 
 
-app.post("/signup", async (req, res) => {
-  const { name, email, password } = req.body;
+// app.post("/signup", async (req, res) => {
+//   const { name, email, password } = req.body;
 
-  try {
-    const user = await UserModel.create({
-      name:name,
-      email:email,
-      password:password,
-    });
+//   try {
+//     const user = await UserModel.create({
+//       name:name,
+//       email:email,
+//       password:password,
+//     });
    
  
-     res.send("user created successfully");
-  } catch (err) {
+//      res.send("user created successfully");
+//   } catch (err) {
     
-   res.status(401).send("invalid cred");
-  }
-});
+//    res.status(401).send("invalid cred");
+//   }
+// });
 
 app.post("/signup", async (req, res) => {
   console.log("signup")
