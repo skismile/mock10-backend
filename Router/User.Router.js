@@ -12,8 +12,17 @@ app.get("/", async (req, res) => {
 app.post("/signup",async(req,res)=>{
 
   const { name, email, password } = req.body;
-  res.send({name,email,password})
+  
+  try{
+    const checkEmail = await UserModel.findOne({ email })
+    res.send(checkEmail)
+  }catch(e){
+    console.log(e);
+        res.status(401).send(e.message);
+  }
 
+
+  
 })
 
 
