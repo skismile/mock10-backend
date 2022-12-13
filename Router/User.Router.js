@@ -8,34 +8,43 @@ app.get("/", async (req, res) => {
 });
 
 // Signup route
-app.post("/signup", async (req, res) => {
-  console.log("signup")
-  const { name, email, password } = req.body;
 
-  try {
-    const checkEmail = await UserModel.findOne({ email });
-    if (checkEmail) {
-      return res.status(401).send("User email already exist");
-    } else {
-      try {
-        const user = new UserModel({
-          name,
-          email,
-          password,
-        });
-        await user.save();
-        console.log(user);
-        return res.send("user created successfully");
-      } catch (err) {
-        console.log(err);
-        return res.status(401).send("invalid cred");
-      }
-    }
-  } catch (e) {
-    console.log(e);
-    res.status(401).send(e.message);
-  }
-});
+app.post("/signup",async(req,res)=>{
+
+
+  res.send("signup")
+
+})
+
+
+// app.post("/signup", async (req, res) => {
+//   console.log("signup")
+//   const { name, email, password } = req.body;
+
+//   try {
+//     const checkEmail = await UserModel.findOne({ email });
+//     if (checkEmail) {
+//       return res.status(401).send("User email already exist");
+//     } else {
+//       try {
+//         const user = new UserModel({
+//           name,
+//           email,
+//           password,
+//         });
+//         await user.save();
+//         console.log(user);
+//         return res.send("user created successfully");
+//       } catch (err) {
+//         console.log(err);
+//         return res.status(401).send("invalid cred");
+//       }
+//     }
+//   } catch (e) {
+//     console.log(e);
+//     res.status(401).send(e.message);
+//   }
+// });
 
 // //Signin Route
 // app.post("/signin", async (req, res) => {
