@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express.Router();
 const mongoose = require("mongoose");
-const UserModel = require("../model/user.model");
+const UserModel = require("../Model/User.Model");
 
 
 app.get("/", async (req, res) => {
