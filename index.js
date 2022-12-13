@@ -38,7 +38,7 @@ app.use(cors());
 app.use(express.json());
 require("dotenv").config();
 const userRegister = require("./Router/User.Router");
-app.use("/signup", userRegister);
+app.use("/user", userRegister);
 const PORT = process.env.PORT || 8080;
 mongoose.set("strictQuery", false);
 const MONGOURL = process.env.MONGO_URL;
