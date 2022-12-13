@@ -19,10 +19,10 @@ app.post("/signup", async (req, res) => {
     });
    
  
-    return res.send("user created successfully");
+     res.send("user created successfully");
   } catch (err) {
     
-    return res.status(401).send("invalid cred");
+   res.status(401).send("invalid cred");
   }
 });
 
