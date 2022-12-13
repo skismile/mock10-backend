@@ -8,7 +8,7 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: new Date(),
-    required:true
+   
   },
 });
 
