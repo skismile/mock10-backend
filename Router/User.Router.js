@@ -41,22 +41,22 @@ app.post("/signup", async (req, res) => {
 });
 
 // //Signin Route
-// app.post("/signin", async (req, res) => {
-//   const { email, password } = req.body;
+app.post("/signin", async (req, res) => {
+  const { email, password } = req.body;
 
-//   try {
-//     const user = await UserModel.findOne({ email, password });
+  try {
+    const user = await UserModel.findOne({ email, password });
 
-//     return res.send({
-//       message: "login Successfully",
-//       name: user.name,
-//       email: user.email,
-//       id: user._id,
-//       date: user.date,
-//     });
-//   } catch (e) {
-//     return res.status(401).send("invalid credential");
-//   }
-// });
+    return res.send({
+      message: "login Successfully",
+      name: user.name,
+      email: user.email,
+      id: user._id,
+      date: user.date,
+    });
+  } catch (e) {
+    return res.status(401).send("invalid credential");
+  }
+});
 
 module.exports = app;
