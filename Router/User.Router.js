@@ -3,16 +3,14 @@ const app = express.Router();
 const mongoose = require("mongoose");
 const UserModel = require("../Model/User.Model");
 
-
 app.get("/", async (req, res) => {
-  let data = await UserModel.find();
-  res.send(data);
+ 
+  res.send("USER");
 });
 
 // Signup route
 app.post("/signup", async (req, res) => {
-  const { name, email, password } =
-    req.body;
+  const { name, email, password } = req.body;
 
   try {
     const checkEmail = await UserModel.findOne({ email });
@@ -29,7 +27,7 @@ app.post("/signup", async (req, res) => {
         console.log(user);
         return res.send("user created successfully");
       } catch (err) {
-        console.log(err)
+        console.log(err);
         return res.status(401).send("invalid cred");
       }
     }
@@ -46,20 +44,16 @@ app.post("/signin", async (req, res) => {
   try {
     const user = await UserModel.findOne({ email, password });
 
- 
-
     return res.send({
       message: "login Successfully",
       name: user.name,
       email: user.email,
       id: user._id,
-      date:user.date
+      date: user.date,
     });
   } catch (e) {
     return res.status(401).send("invalid credential");
   }
 });
-
-
 
 module.exports = app;
