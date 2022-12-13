@@ -3,7 +3,6 @@ const app = express.Router();
 const UserModel = require("../Model/User.Model");
 
 app.get("/", async (req, res) => {
-  console.log("user");
   res.send("USER");
 });
 

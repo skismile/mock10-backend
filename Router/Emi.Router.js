@@ -17,8 +17,8 @@ app.get("/", async (req, res) => {
       rete=rate.toFixed(6)
       let months=tenuremonths
     
-      console.log(loanamount, interestrate, tenuremonths,rate,
-        months)
+      // console.log(loanamount, interestrate, tenuremonths,rate,
+      //   months)
       let EMI=loanamount * rate * (Math.pow(1 + rate,months)  )/ ( Math.pow(1 + rate,months)-1 )
        EMI=Math.round(EMI)
       let totalPayment=EMI*months
