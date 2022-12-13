@@ -9,6 +9,7 @@ app.get("/", async (req, res) => {
 
 // Signup route
 app.post("/signup", async (req, res) => {
+  console.log("signup")
   const { name, email, password } = req.body;
 
   try {
