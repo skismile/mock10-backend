@@ -12,7 +12,7 @@ app.use(express.json())
 app.use("/user",UserRouter)
 app.use("/emicalc",EmiRouter)
 app.get('/',(req,res)=>{res.send('hello')})
-
+mongoose.set("strictQuery", false);
  
 
 mongoose.connect("mongodb+srv://skismile:7867@cluster0.qqyyxrv.mongodb.net/?retryWrites=true&w=majority",()=>{
