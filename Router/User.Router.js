@@ -16,7 +16,7 @@ app.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    const checkEmail = await UserModel.findOne({ email });
+    const checkEmail = await UserModel.findOne({ email:email });
     if (checkEmail) {
       return res.status(401).send("User email already exist");
     } else {
