@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const UserModel = require("../Model/User.Model");
 
 app.get("/", async (req, res) => {
- 
   res.send("USER");
 });
 
