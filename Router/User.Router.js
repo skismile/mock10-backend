@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express.Router();
-const mongoose = require("mongoose");
 const UserModel = require("../Model/User.Model");
 
 app.get("/", async (req, res) => {
@@ -11,11 +10,11 @@ app.get("/", async (req, res) => {
 app.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
 
-  try {
-    const checkEmail = await UserModel.findOne({ email });
-    if (checkEmail) {
-      return res.status(401).send("User email already exist");
-    } else {
+  // try {
+  //   const checkEmail = await UserModel.findOne({ email });
+  //   if (checkEmail) {
+  //     return res.status(401).send("User email already exist");
+  //   } else {
       try {
         const user = new UserModel({
           name,
@@ -29,11 +28,12 @@ app.post("/signup", async (req, res) => {
         console.log(err);
         return res.status(401).send("invalid cred");
       }
-    }
-  } catch (e) {
-    console.log(e);
-    res.status(401).send(e.message);
-  }
+    // }
+  // } 
+  // catch (e) {
+  //   console.log(e);
+  //   res.status(401).send(e.message);
+  // }
 });
 
 // //Signin Route
