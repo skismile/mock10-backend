@@ -11,8 +11,8 @@ app.get("/", async (req, res) => {
 
 app.post("/signup",async(req,res)=>{
 
-
-  res.send("signup")
+  const { name, email, password } = req.body;
+  res.send({name,email,password})
 
 })
 
