@@ -10,20 +10,19 @@ app.get("/", async (req, res) => {
 // Signup route
 
 app.post("/signup", async (req, res) => {
-  console.log("signup");
   const { name, email, password } = req.body;
 
   try {
-    const user = new UserModel({
+    const user = await UserModel.create({
       name:name,
       email:email,
       password:password,
     });
-    await user.save();
-    console.log(user);
+   
+ 
     return res.send("user created successfully");
   } catch (err) {
-    console.log(err);
+    
     return res.status(401).send("invalid cred");
   }
 });
