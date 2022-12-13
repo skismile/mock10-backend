@@ -1,9 +1,9 @@
 require("dotenv").config()
 const mongoose=require("mongoose")
 const express=require('express')
+const cors=require("cors")
 const UserRouter=require("./Router/User.Router")
 const EmiRouter=require("./Router/Emi.Router")
-const cors=require("cors")
 const app=express()
 const PORT=process.env.PORT||8080
 const MONGO_URL=process.env.MONGO_URL
